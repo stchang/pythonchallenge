@@ -26,6 +26,8 @@
 ;; A PNG file starts with an 8-byte signature. 
 ;; The hexadecimal byte values are 89 50 4E 47 0D 0A 1A 0A; 
 ;; the decimal values are 137 80 78 71 13 10 26 10
+
+;; The IDAT chunk contains the actual image data which is the output stream of the compression algorithm. See clause 9: Filtering and clause 10: Compression for details.
 (define header (read-bytes 8 p))
 (let loop ()
   (unless (eof-object? (peek-bytes 1 0 p))
